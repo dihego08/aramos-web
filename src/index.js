@@ -1,17 +1,43 @@
 import React from 'react';
-import ReactDOM from 'react-dom/client';
+import ReactDOM from 'react-dom';
 import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
+import Header from './components/Header';
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
-root.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>
-);
 
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();
+const Body = () => {
+  return (
+    <div id="body">
+      <Header></Header>
+      <Card
+        className='section'
+        img='./Capture1.PNG'
+        title='About the company'
+        description='Lorem ipsum dolor sit amet, asdas adas'></Card>
+      {/* <ContactContainer></ContactContainer> */}
+    </div>
+  )
+}
+
+
+
+const Card = (props) => {
+  return (
+    <div className={props.className}>
+      <div className='small-div'>
+        <i className={props.className}></i>
+        <img src={props.img} alt=''></img>
+      </div>
+      <div className='big-div'>
+        <span className='div-title'>
+          {props.title}
+        </span>
+        <br></br>
+        <span>
+          {props.description}
+        </span>
+      </div>
+    </div>
+  )
+}
+
+ReactDOM.render(<Body></Body>, document.getElementById('root'));
